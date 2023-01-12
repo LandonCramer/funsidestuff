@@ -1,0 +1,34 @@
+#include <array>
+#include <iostream>
+
+// Updated strategy array with actual values
+const std::array<std::array<std::string, 10>, 22> strategy = {
+    {"H", "H", "H", "H", "H", "H", "H", "H", "H", "H"},
+    {"H", "H", "H", "H", "H", "H", "H", "H", "H", "H"},
+    {"H", "H", "H", "H", "H", "H", "H", "H", "H", "H"},
+    {"H", "H", "H", "Dh", "Dh", "H", "H", "H", "H", "H"},
+    {"H", "Dh", "Dh", "Dh", "Dh", "H", "H", "H", "H", "H"},
+    {"H", "Dh", "Dh", "Dh", "Dh", "H", "H", "H", "H", "H"},
+    {"H", "H", "H", "H", "H", "H", "H", "H", "H", "H"},
+    {"S", "Dh", "Dh", "Dh", "Dh", "S", "S", "H", "H", "H"},
+    {"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"},
+    {"S", "S", "S", "S", "S", "S", "S", "S", "S", "S"}
+};
+
+void take_action(std::string play) {
+    if (play == "H") {
+        std::cout << "Player chooses to hit" << std::endl;
+    } else if (play == "Dh") {
+        std::cout << "Player chooses to double hit" << std::endl;
+    } else if (play == "S") {
+        std::cout << "Player chooses to stand" << std::endl;
+    }
+}
+
+int main() {
+    int player_hand = 8;
+    int dealer_upcard = 7;
+    std::string play = strategy[player_hand][dealer_upcard];
+    take_action(play);
+    return 0;
+}
